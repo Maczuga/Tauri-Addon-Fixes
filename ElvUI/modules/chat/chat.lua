@@ -740,6 +740,10 @@ function CH:ShortChannel()
 end
 
 function CH:ConcatenateTimeStamp(msg)
+    if (msg == nil) then
+        msg = ''
+    end
+
 	if (CH.db.timeStampFormat and CH.db.timeStampFormat ~= 'NONE' ) then
 		local timeStamp = BetterDate(CH.db.timeStampFormat, CH.timeOverride or time());
 		timeStamp = timeStamp:gsub(' ', '')
